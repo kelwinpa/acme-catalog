@@ -5,8 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "product")
-public class Product extends ProductBase {
+public class Product {
 
     @Id
     @JsonIgnore
@@ -20,6 +23,12 @@ public class Product extends ProductBase {
 
     @JsonProperty("imageurl3")
     private String imageUrl3;
+
+    private String name;
+    private String shortDescription;
+    private String description;
+    private String price;
+    private List<String> tags = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -51,5 +60,45 @@ public class Product extends ProductBase {
 
     public void setImageUrl3(String imageUrl3) {
         this.imageUrl3 = imageUrl3;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }
