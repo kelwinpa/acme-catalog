@@ -1,10 +1,11 @@
 package com.vmware.acmecatalog.controller;
 
 import com.vmware.acmecatalog.model.Product;
+import com.vmware.acmecatalog.response.CreateProductResponse;
+import com.vmware.acmecatalog.response.GetProductResponse;
+import com.vmware.acmecatalog.response.GetProductsResponse;
 import com.vmware.acmecatalog.service.AcmeCatalogService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class AcmeCatalogController {
@@ -16,17 +17,17 @@ public class AcmeCatalogController {
     }
 
     @GetMapping("/products")
-    public List<Product> getProducts() {
+    public GetProductsResponse getProducts() {
         return acmeCatalogService.getProducts();
     }
 
     @GetMapping("/products/{id}")
-    public Product getProduct(@PathVariable String id) {
+    public GetProductResponse getProduct(@PathVariable String id) {
         return acmeCatalogService.getProduct(id);
     }
 
     @PostMapping("/products")
-    public Product createProduct(@RequestBody Product newProduct) {
+    public CreateProductResponse createProduct(@RequestBody Product newProduct) {
         return acmeCatalogService.createProduct(newProduct);
     }
 }

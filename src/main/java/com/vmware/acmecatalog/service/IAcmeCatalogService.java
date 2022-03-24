@@ -1,14 +1,15 @@
 package com.vmware.acmecatalog.service;
 
 import com.vmware.acmecatalog.model.Product;
-
-import java.util.List;
+import com.vmware.acmecatalog.response.CreateProductResponse;
+import com.vmware.acmecatalog.response.GetProductResponse;
+import com.vmware.acmecatalog.response.GetProductsResponse;
 
 public interface IAcmeCatalogService {
 
-    List<Product> getProducts();
+    GetProductsResponse getProducts();
 
-    Product getProduct(String id);
+    GetProductResponse getProduct(String id);
 
-    Product createProduct(Product product);
+    CreateProductResponse createProduct(Product product);
 }

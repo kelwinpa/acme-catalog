@@ -1,6 +1,5 @@
 package com.vmware.acmecatalog.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,7 +11,6 @@ import java.util.List;
 public class Product {
 
     @Id
-    @JsonIgnore
     private String id;
 
     @JsonProperty("imageurl1")
@@ -27,7 +25,7 @@ public class Product {
     private String name;
     private String shortDescription;
     private String description;
-    private String price;
+    private Double price;
     private List<String> tags = new ArrayList<>();
 
     public String getId() {
@@ -86,11 +84,11 @@ public class Product {
         this.description = description;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
