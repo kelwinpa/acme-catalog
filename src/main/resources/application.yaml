@@ -8,3 +8,6 @@ spring:
     name: "acme-catalog"
   mvc:
     static-path-pattern: /static/images/**
+
+acmeServiceSettings:
+  userServiceUrl: "http://localhost:8083"
